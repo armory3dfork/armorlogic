@@ -252,7 +252,15 @@ class UINodes extends armory.Trait {
 
 		if (drawMenu) {
 			
-			var ph = 100;//NodeCreator.numNodes[menuCategory] * 20;
+			var numNodes = 0;
+			for (cat in NodeCreator.list.categories) {
+				if (cat.name == menuCategory) {
+					numNodes = cat.nodes.length;
+					break;
+				}
+			}
+
+			var ph = numNodes * 20;
 			var py = popupY;
 			g.color = 0xff222222;
 			g.fillRect(popupX, py, 105, ph);
